@@ -1,15 +1,23 @@
-name: mayr_dart_stateman
-description: A starting point for Dart libraries or applications.
-version: 1.0.0
-# repository: https://github.com/my_org/my_repo
+name: mayr_stateman
+description: >-
+  A lightweight and intuitive state utility for Dart.
+
+  Easily manage and track states, statuses, messages, and payloads with simple, chainable methods.
+version: 0.1.0
+homepage: https://github.com/YoungMayor/mayr_dart_stateman
+repository: https://github.com/YoungMayor/mayr_dart_stateman
+issue_tracker: https://github.com/YoungMayor/mayr_dart_stateman/issues
+documentation: https://github.com/YoungMayor/mayr_dart_stateman/wiki
+license: MIT
 
 environment:
   sdk: ^3.7.0
 
 # Add regular dependencies here.
-dependencies:
+# dependencies:
   # path: ^1.8.0
 
 dev_dependencies:
+  faker: ^2.2.0
   lints: ^5.0.0
   test: ^1.24.0

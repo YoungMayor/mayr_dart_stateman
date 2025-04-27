@@ -1,18 +1,23 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+![License](https://img.shields.io/badge/license-MIT-blue.svg?label=Licence)
+![Platform](https://img.shields.io/badge/Platform-Flutter-blue.svg)
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages). 
+![Pub Version](https://img.shields.io/pub/v/mayr_stateman?style=plastic&label=Version)
+![Pub.dev Score](https://img.shields.io/pub/points/mayr_stateman?label=Score&style=plastic)
+![Pub Likes](https://img.shields.io/pub/likes/mayr_stateman?label=Likes&style=plastic)
+![Pub.dev Publisher](https://img.shields.io/pub/publisher/mayr_stateman?label=Publisher&style=plastic)
+![Downloads](https://img.shields.io/pub/dm/mayr_stateman.svg?label=Downloads&style=plastic)
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages). 
--->
+![Build Status](https://img.shields.io/github/actions/workflow/status/YoungMayor/mayr_dart_stateman/ci.yaml?label=Build)
+![Issues](https://img.shields.io/github/issues/YoungMayor/mayr_dart_stateman.svg?label=Issues)
+![Last Commit](https://img.shields.io/github/last-commit/YoungMayor/mayr_dart_stateman.svg?label=Latest%20Commit)
+![Contributors](https://img.shields.io/github/contributors/YoungMayor/mayr_dart_stateman.svg?label=Contributors)
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+# 🚦 Mayr StateMan
+*A lightweight and intuitive state utility for Dart.*
+
+`mayr_stateman` provides an easy way to manage and track the state of any operation.
+
+Whether loading, updating, succeeding, or failing, mayr_stateman keeps your state transitions clean and predictable — without heavy dependencies or boilerplate.
 
 ## Features
 
@@ -26,7 +31,7 @@ start using the package.
 ## Usage
 
 TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
+to `/example` folder.
 
 ```dart
 const like = 'sample';
@@ -34,6 +39,6 @@ const like = 'sample';
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
+TODO: Tell users more about the package: where to find more information, how to
+contribute to the package, how to file issues, what response they can expect
 from the package authors, and more.
