@@ -105,7 +105,7 @@ This resets the state to idle, clears any message, and removes the payload.
 
 For a more user-friendly experience, you can easily access emojis representing the current state. For example:
 ```dart
-StateUtil<String> state = StateUtil<String>.init();
+MayrStateman<String> state = MayrStateman<String>.init();
 
 // Setting the state to error
 state.setErrorWithMessage('An error occurred');
