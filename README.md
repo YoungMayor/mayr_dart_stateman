@@ -51,7 +51,7 @@ Whether loading, updating, succeeding, or failing, mayr_stateman keeps your stat
 
 3. Import it into your Dart file:
     ```dart
-    import 'package:mayr_stateman/mayr_storage.dart';
+    import 'package:mayr_stateman/mayr_stateman.dart';
     ```
 
 > Alternatively, you could install it using the command
