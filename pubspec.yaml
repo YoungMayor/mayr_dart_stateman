@@ -3,7 +3,7 @@ description: >-
   A lightweight and intuitive state utility for Dart.
 
   Easily manage and track states, statuses, messages, and payloads with simple, chainable methods.
-version: 0.1.0
+version: 1.0.0
 homepage: https://github.com/YoungMayor/mayr_dart_stateman
 repository: https://github.com/YoungMayor/mayr_dart_stateman
 issue_tracker: https://github.com/YoungMayor/mayr_dart_stateman/issues

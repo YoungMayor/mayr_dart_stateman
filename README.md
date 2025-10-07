@@ -21,19 +21,25 @@
 Whether loading, updating, succeeding, or failing, mayr_stateman keeps your state transitions clean and predictable — without heavy dependencies or boilerplate.
 
 ## ✨ Features
-- Simple, lightweight state management for Dart projects (and Flutter apps too).
+- **Simple & Lightweight**: Pure Dart state management with zero dependencies.
 
-- Easily manage statuses like idle, loading, success, error, updating, and empty.
+- **Comprehensive Status Management**: Handle `idle`, `loading`, `success`, `error`, `updating`, and `empty` states effortlessly.
 
-- Fluent API for chaining multiple state updates elegantly.
+- **Fluent API**: Chain multiple state updates elegantly for cleaner, more readable code.
 
-- Built-in support for attaching payloads and messages to your states.
+- **Type-Safe Payloads**: Built-in support for attaching type-safe payloads to your states.
 
-- Handy getters like isLoading, isSuccessWithPayload, hasValidPayload, and more.
+- **Message Support**: Associate messages with state transitions for better debugging and UX.
 
-- Zero dependency — pure Dart, clean and fast.
+- **Intuitive Getters**: Convenient getters like `isLoading`, `isSuccessWithPayload`, `hasValidPayload`, `isProcessing`, and more.
 
-- Designed for both frontend UI state and backend logic scenarios.
+- **Visual Feedback**: Emoji representations for each status — perfect for debugging and UI feedback.
+
+- **Versatile**: Designed for both frontend UI state and backend logic scenarios.
+
+- **Well-Tested**: Comprehensive test coverage ensuring reliability and stability.
+
+- **Production Ready**: v1.0.0 follows software engineering best practices (KISS, DRY, SRP, SOC).
 
 ## 🚀 Getting started
 
@@ -44,7 +50,7 @@ Whether loading, updating, succeeding, or failing, mayr_stateman keeps your stat
         mayr_stateman: # check for the latest version on pub.dev
     ```
 
-2. Instal the package:
+2. Install the package:
     ```bash
     flutter pub get
     ```
@@ -62,14 +68,22 @@ Whether loading, updating, succeeding, or failing, mayr_stateman keeps your stat
 
 ## Usage
 
-To use `MayrStateman`, you simply need to create an instance of it.
+### Basic Usage
 
-The `MayrStateman` class is generic, which means you can define a payload type that it will hold.
+To use `MayrStateman`, simply create an instance with your desired payload type:
 
-> For example, if you want to track the state of a network request with a payload of type String, you can do the following:
-> ```dart
-> MayrStateman<String> state = MayrStateman<String>.init();
->```
+```dart
+// Generic stateman - no specific payload type
+MayrStateman state = MayrStateman.init();
+
+// Stateman with String payload
+MayrStateman<String> state = MayrStateman<String>.init();
+
+// Stateman with custom object payload
+MayrStateman<User> userState = MayrStateman<User>.init();
+```
+
+The `MayrStateman` class is generic, allowing you to define a type-safe payload for your state manager.
 
 ### Setting and Getting State
 
@@ -93,6 +107,23 @@ if (state.isSuccessWithPayload) {
 }
 ```
 
+### Method Chaining
+
+One of the powerful features of `MayrStateman` is method chaining:
+
+```dart
+state
+  .setStatusLoading()
+  .setMessage('Fetching user data...')
+  .setPayload(null);
+
+// After async operation
+state
+  .setPayload(userData)
+  .setStatusSuccess()
+  .setMessage('Data loaded successfully');
+```
+
 ### Resetting the State
 
 You can reset the state back to idle with:
@@ -100,6 +131,48 @@ You can reset the state back to idle with:
 state.reset();
 ```
 This resets the state to idle, clears any message, and removes the payload.
+
+### Practical Example
+
+Here's a real-world example of using `MayrStateman` in an async operation:
+
+```dart
+class UserRepository {
+  final MayrStateman<User> userState = MayrStateman<User>.init();
+
+  Future<void> fetchUser(String userId) async {
+    // Set loading state
+    userState.setStatusLoading().setMessage('Fetching user...');
+
+    try {
+      // Simulate API call
+      final user = await api.getUser(userId);
+      
+      // Set success state with payload
+      userState.setSuccessWithPayload(user);
+      
+    } catch (e) {
+      // Set error state with message
+      userState.setErrorWithMessage('Failed to fetch user: $e');
+    }
+  }
+}
+
+// In your UI
+if (userState.isLoading) {
+  return CircularProgressIndicator();
+}
+
+if (userState.isError) {
+  return Text(userState.message ?? 'An error occurred');
+}
+
+if (userState.isSuccessWithPayload) {
+  return UserProfile(user: userState.payload!);
+}
+
+return Text('No data');
+```
 
 ### Using the Emoji Getter for State
 
